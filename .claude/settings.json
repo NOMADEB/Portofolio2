@@ -3,7 +3,13 @@
     "allow": [
       "Bash(awk 'NR>=618 && NR<=673' index.html)",
       "Bash(awk 'NR>=90 && NR<=606' index.html)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(cat)",
+      "Bash(node /tmp/check.js)",
+      "Bash(rm /tmp/check.js)",
+      "Bash(echo \"---EXITCODE:$?---\")",
+      "Bash(node /tmp/marquee.js)",
+      "Bash(rm /tmp/marquee.js)"
     ]
   }
 }
