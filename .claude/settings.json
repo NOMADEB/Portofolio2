@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR>=618 && NR<=673' index.html)",
+      "Bash(awk 'NR>=90 && NR<=606' index.html)"
+    ]
+  }
+}

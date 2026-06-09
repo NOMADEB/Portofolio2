@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Russo+One&display=swap');
+
+/* Custom Font - Etna */
+@font-face {
+    font-family: 'Etna';
+    src: url('./font/etna.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== BASE STYLES ===== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gray-100 text-gray-800 font-sans antialiased;
+  }
+  
+  ::selection {
+    @apply bg-blue-500 text-white;
+  }
+}
+
+/* ===== COMPONENT STYLES ===== */
+@layer components {
+  /* Main Container Card */
+  .main-card {
+    @apply bg-white rounded-[40px] shadow-2xl;
+    box-shadow: 
+      0 25px 80px -20px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-gray-500 hover:text-gray-900 transition-colors text-sm font-medium;
+  }
+  
+  .nav-link.active {
+    @apply text-blue-500;
+  }
+  
+  .nav-link.active::after {
+    content: '';
+    @apply block w-1 h-1 bg-blue-500 rounded-full mx-auto mt-1;
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-full transition-all duration-300;
+    @apply shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40;
+  }
+
+  /* Skill Card */
+  .skill-card {
+    @apply bg-white rounded-2xl p-4 shadow-lg;
+    box-shadow: 
+      0 10px 40px -10px rgba(0, 0, 0, 0.1),
+      0 0 0 1px rgba(0, 0, 0, 0.02);
+  }
+  
+  .skill-card:hover {
+    @apply shadow-xl;
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+  }
+
+  /* Floating Icon */
+  .floating-icon {
+    @apply w-10 h-10 rounded-xl flex items-center justify-center shadow-lg;
+  }
+
+  /* Social Icons */
+  .social-icon {
+    @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
+    @apply bg-gray-100 hover:bg-blue-500 text-gray-600 hover:text-white;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900;
+  }
+
+  /* Glass effect for light theme */
+  .glass-light {
+    @apply bg-white/80 backdrop-blur-xl rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ===== UTILITY STYLES ===== */
+@layer utilities {
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent;
+  }
+
+  /* Floating animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  
+  .animate-float-delayed-2 {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+}
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #60a5fa);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #3b82f6);
+}
+
+/* ===== HEADER NAME ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delayed {
+  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* ===== TECH STACK ANIMATIONS ===== */
+.tech-stack-container > div {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-stack-container > div:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+.tech-stack-container > div:hover > div:first-child {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.tech-stack-container > div:nth-child(1) { animation: techFadeIn 0.5s ease 0.1s backwards; }
+.tech-stack-container > div:nth-child(2) { animation: techFadeIn 0.5s ease 0.15s backwards; }
+.tech-stack-container > div:nth-child(3) { animation: techFadeIn 0.5s ease 0.2s backwards; }
+.tech-stack-container > div:nth-child(4) { animation: techFadeIn 0.5s ease 0.25s backwards; }
+.tech-stack-container > div:nth-child(5) { animation: techFadeIn 0.5s ease 0.3s backwards; }
+.tech-stack-container > div:nth-child(6) { animation: techFadeIn 0.5s ease 0.35s backwards; }
+.tech-stack-container > div:nth-child(7) { animation: techFadeIn 0.5s ease 0.4s backwards; }
+.tech-stack-container > div:nth-child(8) { animation: techFadeIn 0.5s ease 0.45s backwards; }
+.tech-stack-container > div:nth-child(9) { animation: techFadeIn 0.5s ease 0.5s backwards; }
+.tech-stack-container > div:nth-child(10) { animation: techFadeIn 0.5s ease 0.55s backwards; }
+.tech-stack-container > div:nth-child(11) { animation: techFadeIn 0.5s ease 0.6s backwards; }
+.tech-stack-container > div:nth-child(12) { animation: techFadeIn 0.5s ease 0.65s backwards; }
+.tech-stack-container > div:nth-child(13) { animation: techFadeIn 0.5s ease 0.7s backwards; }
+
+@keyframes techFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== WEBSITE CARDS ANIMATIONS ===== */
+.website-cards-container .website-card {
+  transition: all 0.3s ease;
+}
+
+.website-cards-container .website-card:hover {
+  transform: translateX(-8px) scale(1.02);
+}
+
+.website-cards-container .website-card:nth-child(1) {
+  animation: cardSlideIn 0.6s ease 0.2s backwards;
+}
+
+.website-cards-container .website-card:nth-child(2) {
+  animation: cardSlideIn 0.6s ease 0.4s backwards;
+}
+
+.website-cards-container .website-card:nth-child(3) {
+  animation: cardSlideIn 0.6s ease 0.6s backwards;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== SOCIAL ICONS ANIMATIONS ===== */
+.social-icons-container .social-icon {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icons-container .social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+.social-icons-container .social-icon:nth-child(1) {
+  animation: socialPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s backwards;
+}
+
+.social-icons-container .social-icon:nth-child(2) {
+  animation: socialPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s backwards;
+}
+
+.social-icons-container .social-icon:nth-child(3) {
+  animation: socialPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s backwards;
+}
+
+.social-icons-container .social-icon:nth-child(4) {
+  animation: socialPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s backwards;
+}
+
+.social-icons-container .social-icon:nth-child(5) {
+  animation: socialPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.7s backwards;
+}
+
+@keyframes socialPop {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-20deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ===== MOBILE NAVIGATION ===== */
+.mobile-nav-link {
+  @apply flex items-center gap-3 px-4 py-3 text-gray-600 font-medium rounded-xl transition-all;
+}
+
+.mobile-nav-link:hover {
+  @apply bg-gray-50 text-gray-900;
+}
+
+.mobile-nav-link.active {
+  @apply bg-blue-50 text-blue-600;
+}
+
+.mobile-nav-link.active svg {
+  @apply text-blue-500;
+}
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+@media (max-width: 768px) {
+  .main-card {
+    @apply rounded-[24px];
+  }
+  
+  .tech-stack-container > div > div:first-child {
+    @apply w-10 h-10;
+  }
+  
+  .tech-stack-container > div > div:first-child svg {
+    @apply w-6 h-6;
+  }
+  
+  .tech-stack-container > div > span {
+    @apply text-[10px];
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    @apply p-2;
+  }
+  
+  .skill-card {
+    @apply p-3;
+  }
+}
