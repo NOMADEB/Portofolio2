@@ -22,7 +22,11 @@
   body {
     @apply bg-gray-100 text-gray-800 font-sans antialiased;
   }
-  
+
+  .dark body {
+    @apply bg-gray-900 text-gray-200;
+  }
+
   ::selection {
     @apply bg-blue-500 text-white;
   }
@@ -33,18 +37,34 @@
   /* Main Container Card */
   .main-card {
     @apply bg-white rounded-[40px] shadow-2xl;
-    box-shadow: 
+    box-shadow:
       0 25px 80px -20px rgba(0, 0, 0, 0.15),
       0 0 0 1px rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dark .main-card {
+    @apply bg-gray-800;
+    box-shadow:
+      0 25px 80px -20px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
   }
 
   /* Navigation */
   .nav-link {
     @apply text-gray-500 hover:text-gray-900 transition-colors text-sm font-medium;
   }
-  
+
+  .dark .nav-link {
+    @apply text-gray-400 hover:text-white;
+  }
+
   .nav-link.active {
     @apply text-blue-500;
+  }
+
+  .dark .nav-link.active {
+    @apply text-blue-400;
   }
   
   .nav-link.active::after {
@@ -72,6 +92,13 @@
     transition: all 0.3s ease;
   }
 
+  .dark .skill-card {
+    @apply bg-gray-800;
+    box-shadow:
+      0 10px 40px -10px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+
   /* Floating Icon */
   .floating-icon {
     @apply w-10 h-10 rounded-xl flex items-center justify-center shadow-lg;
@@ -81,6 +108,10 @@
   .social-icon {
     @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
     @apply bg-gray-100 hover:bg-blue-500 text-gray-600 hover:text-white;
+  }
+
+  .dark .social-icon {
+    @apply bg-gray-700 hover:bg-blue-500 text-gray-300 hover:text-white;
   }
 
   /* Section Title */
@@ -130,6 +161,10 @@
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1f2937;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -327,6 +362,22 @@
 
 .mobile-nav-link.active svg {
   @apply text-blue-500;
+}
+
+.dark .mobile-nav-link {
+  @apply text-gray-300;
+}
+
+.dark .mobile-nav-link:hover {
+  @apply bg-gray-700 text-white;
+}
+
+.dark .mobile-nav-link.active {
+  @apply bg-gray-700 text-blue-400;
+}
+
+.dark #mobileNav {
+  @apply bg-gray-800 border-gray-700;
 }
 
 /* ===== MOBILE RESPONSIVE FIXES ===== */
